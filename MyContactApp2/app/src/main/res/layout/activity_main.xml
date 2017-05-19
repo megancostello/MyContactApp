@@ -34,8 +34,8 @@
         android:text="Add Data"
         android:id="@+id/button_add"
         android:onClick="addData"
-        android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_alignTop="@+id/button_view"
+        android:layout_alignStart="@+id/editText_address" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,5 +81,22 @@
         android:layout_alignEnd="@+id/editText_address"
         android:layout_marginEnd="47dp"
         android:onClick="viewData" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/button_search"
+        android:onClick="searchData"
+        android:layout_below="@+id/editText_address"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_search"
+        android:layout_alignTop="@+id/button_search"
+        android:layout_alignEnd="@+id/editText_address"
+        android:layout_toEndOf="@+id/button_search" />
 
 </RelativeLayout>

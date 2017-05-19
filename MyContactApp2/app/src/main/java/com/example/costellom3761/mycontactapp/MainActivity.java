@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
-    EditText editName, editAge, editAddress;
+    EditText editName, editAge, editAddress, editSearch;
     Button btnAddData;
 
     @Override
@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         editName = (EditText) findViewById(R.id.editText_name);
         editAge = (EditText) findViewById(R.id.editText_age);
         editAddress = (EditText) findViewById(R.id.editText_address);
+
+        editSearch = (EditText) findViewById(R.id.editText_search);
     }
 
     public void addData(View v) {
@@ -79,6 +81,34 @@ public class MainActivity extends AppCompatActivity {
         showMessage("Data", buffer.toString());
 
     }
+
+    public void searchData(View v) {
+
+        Cursor res = myDb.getAllData();
+        StringBuffer buffer = new StringBuffer();
+        String match =  editSearch.getText().toString();
+
+        while (res.moveToNext()) {
+            String idString = res.getString(0);
+            String nameString = res.getString(1);
+            String ageString = res.getString(2);
+            String addressString = res.getString(3);
+
+            if (match.equals(nameString)) {
+
+                buffer.append("ID: " + idString + "\n" + "name: " + nameString + "\n" + "age: " + ageString + "\n" +
+                        "address: " + addressString + "\n\n");
+
+            }
+        }
+        if(buffer.length()==0) {
+            showMessage("No Results Found", buffer.toString());
+        }
+        else {
+            showMessage("Search Results ", buffer.toString());
+            Log.d("MyContact", "results found");
+        }
+        }
 
     private void showMessage(String title, String message) {
         //alert dialog
