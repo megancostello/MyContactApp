@@ -34,8 +34,8 @@
         android:text="Add Data"
         android:id="@+id/button_add"
         android:onClick="addData"
-        android:layout_alignTop="@+id/button_view"
-        android:layout_alignStart="@+id/editText_address" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,17 +70,16 @@
         android:id="@+id/editText_address"
         android:layout_centerVertical="true"
         android:layout_alignEnd="@+id/editText_age"
-        android:layout_alignStart="@+id/editText_age" />
+        android:layout_toEndOf="@+id/button_add" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View Data"
         android:id="@+id/button_view"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/editText_address"
-        android:layout_marginEnd="47dp"
-        android:onClick="viewData" />
+        android:onClick="viewData"
+        android:layout_alignTop="@+id/button_add"
+        android:layout_alignEnd="@+id/editText_search" />
 
     <Button
         android:layout_width="wrap_content"
